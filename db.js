@@ -7,17 +7,13 @@ var mongoose = require('mongoose');
 var dbCredentials = require('./dbCredentials.json');
 mongoose.connect(`mongodb://${dbCredentials.username}:${dbCredentials.password}@ds053164.mongolab.com:53164/database1`);
 
-var connectionPromise = new Promise(function(resolve, reject) {
-    var db = mongoose.connection;
-    db.on('error', function (err) {
-        console.error('Connection Error: ', err);
-        reject();
-    });
-    db.once('open', function (callback) {
-        console.log('Successfully connected to Mongo database.');
-        resolve(db);
-    });
+var db = mongoose.connection;
+db.on('error', function (err) {
+    console.error('Connection Error: ', err);
+});
+db.once('open', function (callback) {
+    console.log('Successfully connected to Mongo database.');
 });
 
-module.exports = connectionPromise;
+module.exports = db;
 
