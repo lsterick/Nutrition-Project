@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Bootstrap setup -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- head content -->
+	<title>Nutrition Environment Measures Survey</title>
+	
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="dataEntry.css">
+	<link href="../includes/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../includes/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+	
+	<!-- javascript -->
+	<script src="../includes/jquery-1.11.3.js" defer></script>
+	 <script src="../includes/bootstrap-3.3.5-dist/js/bootstrap.min.js" defer></script>
+	<script src="datasetSelect.js" defer></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row well">
+			<div id="title-bar">
+				<div class="col-xs-2">
+					<button class="btn btn-default">Back</button>
+				</div>
+				<div class="col-xs-8 text-center">
+					Name here
+				</div>
+				<div class="col-xs-2">
+					<button class="btn btn-default">Save</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- hidden when finished -->
+		<div class="question0">
+		</div>
+		<div class="question1 finished">
+			<h3>Select the type of restaurant:</h3>
+			<div class="btn-group btn-group-vertical btn-group-justified" role="group">
+				<button type="button" class="btn btn-default">Dining Hall</button>
+				<button type="button" class="btn btn-default">Cafeteria and Salad Bar</button>
+				<button type="button" class="btn btn-default">Grab-N-Go Snack Shop</button>
+			</div>
+		</div>
+		<div class="question2 finished">
+			<h3>Data Sources:</h3>
+			<div class="checkbox"> <!-- consider making the hitbox larger for all checkboxes -->
+				<label> <input type="checkbox"> Site Visit </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Take-Away Menu </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Internet </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Interview </label>
+			</div>
+		</div>
+		<div class="question3 finished"><!-- Hide any of questions 3 through 6 that do not apply based on responses to quesion 2 -->
+			<h3>Site Visit Information:</h3>
+			<div class="checkbox"> 
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Take/Away Menu </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Nutrition Information </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Other </label>
+			</div>
+			<textarea rows="4" cols="30" placeholder="Comments"></textarea> <!-- Disable when other not selected -->
+		</div>
+		<div class="question4 hidden">
+			<h3>Take-Away Menu:</h3>
+			<div class="checkbox"> 
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Nutrition Information </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Identification of healthier items </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Other </label>
+			</div>
+			<textarea rows="4" cols="30" placeholder="Comments"></textarea> <!-- Disable when other not selected -->
+		</div>
+		<div class="question5 finished">
+			<h3>Website:</h3>
+			<div class="checkbox"> 
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Menu </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Nutrition Information </label> <!-- worth a point -->
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Identification of healthier items </label><!-- worth a point -->
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Other </label>
+			</div>
+			<div class="textbox">
+				<label> URL </label><input type="text" placeholder="URL">
+			</div>
+			<textarea rows="4" cols="30" placeholder="Comments"></textarea> <!-- Disable when other not selected -->
+		</div>
+		<div class="question6 finished">
+			<h3>Take-Away Menu:</h3>
+			<div class="checkbox"> 
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Menu options </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Pricing </label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Other </label>
+			</div>
+			<textarea rows="4" cols="30" placeholder="Comments"></textarea> <!-- Disable when other not selected -->
+		</div>
+		<div class="question7 finished">
+			<h3>Hours of operation:</h3>
+			<div>Data Source:</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">Site</button>
+				<button type="button" class="btn btn-default">Menu</button>
+				<button type="button" class="btn btn-default">Web</button>
+			</div>
+			<div class="checkbox"><!-- hide below if checked -->
+				<label> <input type="checkbox"> Open 24 Hours </label>
+			</div>
+			<h4>Sunday</h4>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">Open</button>
+				<button type="button" class="btn btn-default">Closed</button>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">B: 6:00AM - 11:00 AM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">L: 11:00AM - 3:00 PM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">D: 5:00 PM - Close</label>
+			</div>
+			Hours: <input type="time"> to <input type="time">
+			<h4>Thursday</h4>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">Open</button>
+				<button type="button" class="btn btn-default">Closed</button>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">B: 6:00AM - 11:00 AM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">L: 11:00AM - 3:00 PM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">D: 5:00 PM - Close</label>
+			</div>
+			Hours: <input type="time"> to <input type="time">
+			<h4>Friday</h4>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">Open</button>
+				<button type="button" class="btn btn-default">Closed</button>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">B: 6:00AM - 11:00 AM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">L: 11:00AM - 3:00 PM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">D: 5:00 PM - Close</label>
+			</div>
+			Hours: <input type="time"> to <input type="time">
+			<h4>Saturday</h4>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">Open</button>
+				<button type="button" class="btn btn-default">Closed</button>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">B: 6:00AM - 11:00 AM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">L: 11:00AM - 3:00 PM</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">D: 5:00 PM - Close</label>
+			</div>
+			Hours: <input type="time"> to <input type="time">
+		</div>
+		<div class="question8 finished">
+			<div>Access:</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">Drive-thru window</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">Parking onsite</label>
+			</div>
+		</div>
+		<div class="question9 finished">
+			<h3>Size of Venue:</h3>
+			Choose input method:
+			<div class="checkbox">
+				<label> <input type="checkbox">Drive-thru window</label>
+			</div>
+			<div class="checkbox">
+				<label> <input type="checkbox">Parking onsite</label>
+			</div>
+			<input type="number"><!-- hide until one of the checkboxes selected-->
+		</div>
+		<div class="question10 finished"> <!-- hide unless site visit selected -->
+			<h3>Site Visit:</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">Restaurant has a salad bar</label>
+			</div>
+			<textarea rows="4" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question11 finished"><!-- hide unless site visit selected -->
+			<h3>Site Visit (Signage/Promotions):</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">Nutrition information is posted near point-of-purchase, or available in a brochure</label><!-- worth a point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Signs highlight healthy menu opitions</label><!-- worth a point, max 1 point from both this and next part -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Signs/table tents/displays encourage healthy eating</label><!-- worth a point, max 1 point from both this and prev part -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<h3>Site Visit:</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">Signs/table tents/displays encourage unhealthy eating</label><!-- worth -1 points, max -1 point from both this and next part -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Signs/table tents/displays encourage overeating (e.g. all-you-can-eat, puper-size, jumbo, grande, supreme, king size feast, feast descriptors on menu or signage</label><!-- worth -1 points, max -1 point from both this and prev part -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Restaurant has a low-carb promotion</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Other</label><!-- not sure if this should remain-->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<textarea rows="2" cols="30" placeholder="Further comments regarding observation"></textarea>
+		</div>
+		<div class="question12 finished"><!-- only show if Menu review or site visit selected-->
+			<h3>Menu Review/Site Visit:</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">Chips</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Baked Chips</label><!-- Worth a point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question13 finished">
+			<h3>Menu Review/Site Visit:</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">Bread</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">100% wheat or whole grain bread</label><!-- Worth a point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question14 finished">
+			<h3>Menu Review/Site Visit:</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">100% Fruit Juice</label><!-- Worth a point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question15 finished">
+			<h3>Menu Review/Site Visit:</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">1% low-fat, skim, or non-fat milk</label><!-- Worth a point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question16 finished">
+			<h3>Menu Review:</h3> <!-- only show these if Menu selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Main Dishes/Entrees</label>
+			</div>
+			Number of main dishes/entrees: <input type="number"> <!-- hide until checkbox checked -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Healthy Options</label>
+			</div>
+			Number of healthy options: <input type="number"> <!-- hide until checkbox checked -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<!-- 1 choice = 1pt, 2-4 choices = 2pt, 5+ choices = 3tp -->
+			
+			<!-- healthy/entrees = proportion of healthy entrees -->
+		</div>
+		<div class="question17 finished">
+			<h3>Menu Review:</h3> <!-- only show these if Menu selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Main Dish Salads</label>
+			</div>
+			Number of main dish salads: <input type="number"> <!-- hide until checkbox checked -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Healthy Options</label>
+			</div>
+			Number of healthy salads: <input type="number"> <!-- hide until checkbox checked -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<!-- 1 choice = 1pt, 2-4 choices = 2pt, 5+ choices = 3tp -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Low-fat or fat free dressings</label>
+			</div>
+			Number of low-fat or fat free dressings: <input type="number"> <!-- hide until checkbox checked -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<!-- 1 choice = 1pt, 2 choices = 2pt, 3+ choices = 3tp -->
+			
+			<!-- healthy/salads = proportion of healthy salads -->
+		</div>
+		<div class="question18 finished">
+			<h3>Menu Review:</h3> <!-- only show these if Menu selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Fruit (without added sugar)</label>
+			</div><!-- yes = point -->
+			Number of choices: <input type="number"> <!-- hide until checkbox checked -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question19 finished">
+			<h3>Menu Review:</h3> <!-- only show these if Menu selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Non-fried vegetables(without added sauce)</label>
+			</div><!-- yes = 1 point -->
+			Number of choices: <input type="number"> <!-- hide until checkbox checked -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question20 finished">
+			<h3>Menu Review:</h3> <!-- only show these if Menu selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Diet soda</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question21 finished">
+			<h3>Menu Review:</h3> <!-- only show these if Menu selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Other healthy or low calorie beverage</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question22 finished">
+			<h3>Menu Review/Site Visit (Facilitators and Supports):</h3><!-- show if menu or site visit selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Nutrition information on menu (paper or posted menu)</label><!-- worth a point, max 1 point from both this and next part -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Healthy entrees identified on menu</label><!-- worth a point, max 1 point from both this and prev part -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Reduced-size portions offered on menu</label><!-- worth a point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Menu notation encourages healthy requests</label><!-- worth a point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Other</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question23 finished">
+			<h3>Menu Review/Site Visit (Barriers):</h3><!-- show if menu or site visit selected -->
+			<div class="checkbox">
+				<label> <input type="checkbox">Large portions sizes encouraged (e.g., super-size items on menu)</label><!-- -1 point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Menu notations that discourage special requests (e.g., no substitutions or charge for substitutions)</label><!-- -1 point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">All-you-can-eat or "unlimited trips"</label><!-- -1 point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Other</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question24 finished">
+			<h3>Menu Review/Site Visit (Pricing):</h3><!-- show if menu or site visit selected -->
+			<div>Sum of individual items compared to combo meal:</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div><!-- Combo meal is cheaper = -1 pt -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div>Healthy entree pricing compared to regular entrees</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div><!-- healthy entree is cheaper = 1 pt -->
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div class="checkbox">
+				<label> <input type="checkbox">Charge for shared entree</label>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div>Smaller portion compared to regular portion</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<div>Other</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+			<textarea rows="2" cols="30" placeholder="Further comments regarding menu review/site visit"></textarea>
+		</div>
+		<div class="question25 finished">
+			<h3>Added Observations:</h3>
+			<div class="checkbox">
+				<label> <input type="checkbox">Healthy items ordered first on nutrition information or menus</label><!-- -1 point -->
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question26 finished">
+			<h3>Added Observations:</h3>
+			<div>How often are healthier items sold at the register in comparison to unhealthy items?</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question27 finished">
+			<h3>Added Observations:</h3>
+			<div>How often are healthier items sold at the grab-n-go stations in comparison to unhealthy items?</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question28 finished">
+			<h3>Added Observations:</h3>
+			<div>Are healthier items at eye-level or easily reached at the grab-n-go stations in comparison to unhealthy items?</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question29 finished">
+			<h3>Added Observations:</h3>
+			<div>Are healthier items at eye-level or easily reached in the fridges in comparison to unhealthier drinks?</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question30 finished">
+			<h3>Added Observations:</h3>
+			<div>What are the prices of healthier snacks compared to unhealthy snacks?</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">More</button>
+				<button type="button" class="btn btn-default">Less</button>
+				<button type="button" class="btn btn-default">Same</button>
+				<button type="button" class="btn btn-default">N/A</button>
+			</div>
+			<textarea rows="2" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question31 finished">
+			<h3>Added Observations:</h3>
+			<div>What is offered with the combo meal? What are the differences in size/cost</div>
+			<textarea rows="5" cols="30" placeholder="Comments"></textarea>
+		</div>
+		<div class="question32 finished">
+			<h3>Added Observations:</h3>
+			<div>Average wait time:</div>
+			<textarea rows="1" cols="30" placeholder="Comments"></textarea>
+			<div>Additional comments/observations</div>
+			<textarea rows="5" cols="30" placeholder="Comments"></textarea>
+		</div>
+		
+		
+		
+		<div id="footer" class="row">
+			<nav class="navbar-fixed-bottom col-xs-offset-2">
+				<ul class="pagination" id="pages">
+					<li>
+					<a href="#" class="disabled" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+					</li>
+					<li><a href="#" class="btn-primary">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li>
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	
+</body>
+</html>
