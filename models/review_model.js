@@ -12,13 +12,28 @@ var findAll = function() {
     return Review.find({}).exec();
 };
 
+var find = function(restaurantId, raterId) {
+    return Review.find({
+        restaurantId: restaurantId,
+        raterId: raterId
+    }).exec();
+};
+
 var addNew = function(body) {
-    var review = new Review({
+    var newReview = {
         restaurantId: body.restaurantId,
         raterId: body.raterId
-    });
+    };
 
-    return review.save();
+    return Review.findOneAndUpdate(
+        {
+            restaurantId: body.restaurantId,
+            raterId: body.raterId
+        },
+        newReview,
+        { upsert: true }
+    );
+
 };
 
 var deleteAll = function(body) {
@@ -27,6 +42,7 @@ var deleteAll = function(body) {
 
 module.exports = {
     findAll: findAll,
+    find: find,
     addNew: addNew,
     deleteAll: deleteAll
 };

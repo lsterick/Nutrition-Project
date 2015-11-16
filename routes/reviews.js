@@ -11,11 +11,10 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    console.log('req.body', req.body);
     return reviewModel
         .addNew(req.body)
         .then(function(data) {
-            res.sendStatus(200);
+            return res.redirect(200, '/');
         });
 });
 

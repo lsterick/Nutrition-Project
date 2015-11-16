@@ -13,7 +13,22 @@ router.get('/', function(req, res) {
 });
 
 router.get('/dataEntry', function(req, res) {
-    res.render('dataEntry');
+    var restaurantId = req.query.restaurantId;
+    var raterId = req.query.raterId;
+
+    var params = {
+        title: 'Data Entry',
+        review: {}
+    };
+
+    if (!restaurantId || !raterId) {
+        return res.render('form', params);
+    }
+
+    return reviewModel.find(restaurantId, raterId).then(function(reviews) {
+        params.review = reviews[0];
+        return res.render('form', params);
+    })
 });
 
 module.exports = router;
