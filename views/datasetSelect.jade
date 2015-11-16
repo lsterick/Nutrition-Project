@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    a(href='/dataEntry', class='btn btn-primary', id='newRestaurant') New Restaurant
+    br
+    br
+    each review in reviews
+        a(href='/dataEntry?restaurantId=#{review.restaurantId}&raterId=#{review.raterId}', class='btn btn-primary', id=review.restaurantId+review.raterId, style='white-space:pre;').
+            Restaurant ID: #{review.restaurantId} 
+            Rater ID: #{review.raterId} 
+        br
+        br
+        

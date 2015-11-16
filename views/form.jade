@@ -1,0 +1,10 @@
+form(action='/reviews', method='post')
+    div
+        label(for='restaurantId') Restaurant ID:
+        input(type='text', name='restaurantId', id='restaurantId', value=review.restaurantId ? review.restaurantId : '')
+    div
+        label(for='raterId') Rater ID:
+        input(type='text', name='raterId', id='raterId', value=review.raterId ? review.raterId : '')
+    div
+        button(type='submit') Submit
+

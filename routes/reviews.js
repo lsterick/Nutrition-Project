@@ -14,6 +14,14 @@ router.post('/', function(req, res) {
     return reviewModel
         .addNew(req.body)
         .then(function(data) {
+            return res.redirect(200, '/');
+        });
+});
+
+router.delete('/', function(req, res) {
+    return reviewModel
+        .deleteAll()
+        .then(function(data) {
             res.sendStatus(200);
         });
 });

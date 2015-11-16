@@ -2,8 +2,8 @@ var Schema = require('mongoose').Schema;
 var db = require('../db');
 
 var reviewSchema = Schema({
-    name: String,
-    score: Number
+    restaurantId: String,
+    raterId: String
 });
 
 var Review = db.model('Review', reviewSchema);
@@ -12,18 +12,38 @@ var findAll = function() {
     return Review.find({}).exec();
 };
 
-var addNew = function(body) {
-    console.log('got here');
-    var review = new Review({
-        name: body.name,
-        score: body.score
-    });
+var find = function(restaurantId, raterId) {
+    return Review.find({
+        restaurantId: restaurantId,
+        raterId: raterId
+    }).exec();
+};
 
-    return review.save();
+var addNew = function(body) {
+    var newReview = {
+        restaurantId: body.restaurantId,
+        raterId: body.raterId
+    };
+
+    return Review.findOneAndUpdate(
+        {
+            restaurantId: body.restaurantId,
+            raterId: body.raterId
+        },
+        newReview,
+        { upsert: true }
+    );
+
+};
+
+var deleteAll = function(body) {
+    return Review.remove({}).exec(); 
 };
 
 module.exports = {
     findAll: findAll,
-    addNew: addNew
+    find: find,
+    addNew: addNew,
+    deleteAll: deleteAll
 };
 
