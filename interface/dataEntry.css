@@ -16,3 +16,7 @@
 .finished{
     display: none !important;
 }
+
+.btn-vertical-justified{
+	display: block !important;
+}
