@@ -2,8 +2,8 @@ var Schema = require('mongoose').Schema;
 var db = require('../db');
 
 var reviewSchema = Schema({
-    name: String,
-    score: Number
+    restaurantId: String,
+    raterId: String
 });
 
 var Review = db.model('Review', reviewSchema);
@@ -13,17 +13,21 @@ var findAll = function() {
 };
 
 var addNew = function(body) {
-    console.log('got here');
     var review = new Review({
-        name: body.name,
-        score: body.score
+        restaurantId: body.restaurantId,
+        raterId: body.raterId
     });
 
     return review.save();
 };
 
+var deleteAll = function(body) {
+    return Review.remove({}).exec(); 
+};
+
 module.exports = {
     findAll: findAll,
-    addNew: addNew
+    addNew: addNew,
+    deleteAll: deleteAll
 };
 
